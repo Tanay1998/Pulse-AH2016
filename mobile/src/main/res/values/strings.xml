@@ -2,10 +2,19 @@
     <string name="app_name">Threadly</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home">Home</string>
-    <string name="titleA">Messages</string>
-    <string name="titleB">Frequents</string>
+    <string name="titleA">All</string>
+    <string name="titleB">Social</string>
+    <string name="titleC">Work</string>
+    <string name="titleD">Promotions</string>
+    <string name="titleE">Misc</string>
+    <string name="titleF">Marked</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_home_screen">Home Screen</string>
-    <string name="titleC">Categories</string>
+    <string name="all_title">All Messages here</string>  
+    <string name="social_title">Social Messages here</string>  
+    <string name="marked_title">Marked Messages here</string>  
+    <string name="misc_title">Misc Messages here</string>  
+    <string name="promotions_title">Promotional Messages here</string>  
+    <string name="work_title">Work Messages here</string>  
 </resources>

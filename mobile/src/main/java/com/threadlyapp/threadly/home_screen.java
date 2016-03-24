@@ -32,9 +32,12 @@ public class home_screen extends AppCompatActivity {
         });
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
-                .add(R.string.titleA, home_screenFragment.class)
-                .add(R.string.titleB, frequents.class)
-                .add(R.string.titleC, home_screenFragment.class)
+                .add(R.string.titleA, allMessages.class)
+                .add(R.string.titleB, socialMessages.class)
+                .add(R.string.titleC, workMessages.class)
+                .add(R.string.titleD, promotionsMessages.class)
+                .add(R.string.titleE, miscMessages.class)
+                .add(R.string.titleF, markedMessages.class)
                 .create());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
