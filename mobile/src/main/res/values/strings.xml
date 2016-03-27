@@ -10,7 +10,7 @@
     <string name="titleF">Marked</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_home_screen">Home Screen</string>
+    <string name="no_messages">No messages to show</string>
     <string name="all_title">All Messages here</string>  
     <string name="social_title">Social Messages here</string>  
     <string name="marked_title">Marked Messages here</string>  
