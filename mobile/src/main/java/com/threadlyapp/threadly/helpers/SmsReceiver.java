@@ -37,7 +37,6 @@ public class SmsReceiver extends BroadcastReceiver
 					int status = currentMessage.getStatus();
 					ShortMessage message = new ShortMessage(date, body, recep);
 
-					Toast.makeText(context, body, Toast.LENGTH_SHORT).show();
 					Toast.makeText(context, TextProcessor.CivilizeText(body), Toast.LENGTH_SHORT).show();
 				}
 			}

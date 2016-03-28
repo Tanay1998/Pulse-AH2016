@@ -65,6 +65,14 @@ public class InboxManager
 						String.valueOf(c.getInt(6)) + " @ " + String.valueOf(c.getInt(7)) + " @ " +
 						String.valueOf(c.getInt(8)) + " @ " + c.getString(10) + " @ " + c.getString(11) + " @ " +
 						String.valueOf(c.getInt(13));
+
+				ShortMessage sms = new ShortMessage();
+				sms.SetBody(c.getString(11));
+				sms.AddSender(c.getString(2));
+				sms.SetID(c.getLong(0));
+				sms.SetThreadID(c.getLong(1));
+				sms.SetSeenStatus(c.getInt(15));
+				messages.add(sms);
 			/*
 			0:      _id
 			1:     thread_id
@@ -80,6 +88,8 @@ public class InboxManager
 			11:    body                 String
 			12:    service_center
 			13:    locked
+			14:     error code
+			15:     seen
 			 */
 				Log.d("Message Details", out);
 				x++;

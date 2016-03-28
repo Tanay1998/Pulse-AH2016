@@ -21,6 +21,9 @@ public class ShortMessage extends RealmObject
 	String recipients;
 	String civilBody;
 	String tags;
+	long thread_id;
+	boolean seen;
+
 	long id;
 
 	/*
@@ -99,6 +102,26 @@ public class ShortMessage extends RealmObject
 	public void SetID (long value)
 	{
 		id = value;
+	}
+
+	public long GetThreadID ()
+	{
+		return thread_id;
+	}
+
+	public void SetThreadID (long value)
+	{
+		thread_id = value;
+	}
+
+	public boolean IsSeen ()
+	{
+		return seen;
+	}
+
+	public void SetSeenStatus (int s)
+	{
+		seen = (s != 0);
 	}
 
 	/*
