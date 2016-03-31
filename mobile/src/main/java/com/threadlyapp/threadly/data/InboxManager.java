@@ -6,8 +6,11 @@ import android.net.Uri;
 import android.provider.Telephony;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ListView;
 
+import com.threadlyapp.threadly.AllMessagesFragment;
 import com.threadlyapp.threadly.MainActivity;
+import com.threadlyapp.threadly.R;
 import com.threadlyapp.threadly.models.ShortMessage;
 
 import java.text.SimpleDateFormat;
@@ -53,26 +56,35 @@ public class InboxManager
 		ContentResolver contentResolver = activity.getContentResolver();
 		//String[] cols = {"_id", "thread_id", "address", "body"};
 		// Last parameter is for sorting, Second column is for selection. Third for projection
-		Cursor c = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, null);
+		// Create Sent box URI
+		Uri sentURI = Uri.parse("content://sms/inbox");
+
+		// List required columns
+		String[] reqCols = new String[] { "_id", "person", "seen", "thread_id", "address", "body" };
+
+		Cursor c = contentResolver.query(sentURI, null, null, null, null);
 
 		int x = 0;
 		if (c != null && c.moveToFirst())
 		{
 			do
 			{
-				String out = String.valueOf(c.getLong(0)) + " @ " + String.valueOf(c.getLong(1)) + " @ " + c.getString(2)
-						+ " @ " + c.getString(3) + " @ " + String.valueOf(c.getLong(4)) + " @ " +
-						String.valueOf(c.getInt(6)) + " @ " + String.valueOf(c.getInt(7)) + " @ " +
-						String.valueOf(c.getInt(8)) + " @ " + c.getString(10) + " @ " + c.getString(11) + " @ " +
-						String.valueOf(c.getInt(13));
+//				String out = String.valueOf(c.getLong(0)) + " @ " + String.valueOf(c.getLong(1)) + " @ " + c.getString(2)
+//						+ " @ " + c.getString(4) + " @ " + String.valueOf(c.getLong(4)) + " @ " +
+//						String.valueOf(c.getInt(6)) + " @ " + String.valueOf(c.getInt(7)) + " @ " +
+//						String.valueOf(c.getInt(8)) + " @ " + c.getString(10) + " @ " + c.getString(11) + " @ " +
+//						String.valueOf(c.getInt(13));
+				String out = c.getString(c.getColumnIndex("body"));
 
 				ShortMessage sms = new ShortMessage();
-				sms.SetBody(c.getString(11));
-				sms.AddSender(c.getString(2));
-				sms.SetID(c.getLong(0));
-				sms.SetThreadID(c.getLong(1));
-				sms.SetSeenStatus(c.getInt(15));
+				sms.SetBody(c.getString(c.getColumnIndex("body")));
+				sms.AddSender(c.getString(c.getColumnIndex("person")));
+				sms.SetID(c.getLong(c.getColumnIndex("_id")));
+				sms.SetThreadID(c.getLong(c.getColumnIndex("thread_id")));
+				sms.SetSeenStatus((int)c.getLong(c.getColumnIndex("seen")));
 				messages.add(sms);
+
+
 			/*
 			0:      _id
 			1:     thread_id

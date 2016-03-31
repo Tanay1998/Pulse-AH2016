@@ -20,36 +20,36 @@ public class TextProcessor
 {
 	public static String CivilizeText (String body)
 	{
-		Log.d("HERE", "HERE");
-		String api1 = "http://threadlyapp.com/apis/slang/1.php?s=" + Uri.encode(body);
-		String out1 = "";
-		try
-		{
-			URL url = new URL(api1);
-
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-
-			String line;
-			StringBuilder lines = new StringBuilder();
-			while ((line = in.readLine()) != null)
-			{
-				lines.append(line);
-			}
-			in.close();
-			out1 = lines.toString();
-		}
-		catch (MalformedURLException e)
-		{
-			System.out.println("Malformed URL: " + e.getMessage());
-			return body;
-		}
-		catch (IOException e)
-		{
-			System.out.println("I/O Error: " + e.getMessage());
-			return body;
-		}
-
-		return out1;
+//		Log.d("HERE", "HERE");
+//		String api1 = "http://threadlyapp.com/apis/slang/1.php?s=" + Uri.encode(body);
+//		String out1 = "";
+//		try
+//		{
+//			URL url = new URL(api1);
+//
+//			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+//
+//			String line;
+//			StringBuilder lines = new StringBuilder();
+//			while ((line = in.readLine()) != null)
+//			{
+//				lines.append(line);
+//			}
+//			in.close();
+//			out1 = lines.toString();
+//		}
+//		catch (MalformedURLException e)
+//		{
+//			System.out.println("Malformed URL: " + e.getMessage());
+//			return body;
+//		}
+//		catch (IOException e)
+//		{
+//			System.out.println("I/O Error: " + e.getMessage());
+//			return body;
+//		}
+//
+		return body;
 	}
 }
 
