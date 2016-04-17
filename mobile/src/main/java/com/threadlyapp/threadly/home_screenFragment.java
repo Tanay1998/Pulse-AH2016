@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class home_screenFragment extends Fragment {
+public class  home_screenFragment extends Fragment {
 
     public home_screenFragment() {
     }
