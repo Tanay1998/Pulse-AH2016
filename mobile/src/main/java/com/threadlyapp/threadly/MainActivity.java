@@ -1,6 +1,7 @@
 package com.threadlyapp.threadly;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity
 			@Override
 			public void onClick (View view)
 			{
-				Snackbar.make(view, "Arrey! LOL abhi kuch nahi hota.", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
+				Intent composeSmsActivityIntent = new Intent(MainActivity.this, ComposeSmsActivity.class);
+				MainActivity.this.startActivity(composeSmsActivityIntent);
 			}
 		});
 		FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(

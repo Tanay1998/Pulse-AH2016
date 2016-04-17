@@ -16,5 +16,6 @@
     <string name="marked_title">Marked Messages here</string>  
     <string name="misc_title">Misc Messages here</string>  
     <string name="promotions_title">Promotional Messages here</string>  
-    <string name="work_title">Work Messages here</string>  
+    <string name="work_title">Work Messages here</string>
+    <string name="title_activity_compose_sms">compose_sms</string>  
 </resources>

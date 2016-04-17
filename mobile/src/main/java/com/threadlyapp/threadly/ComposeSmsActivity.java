@@ -23,6 +23,7 @@ public class ComposeSmsActivity extends AppCompatActivity
 	protected void onCreate (Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		SendManager.SetActivity(this);
+		setContentView(R.layout.activity_compose_sms);
+		setTitle("New Message");
 	}
 }
