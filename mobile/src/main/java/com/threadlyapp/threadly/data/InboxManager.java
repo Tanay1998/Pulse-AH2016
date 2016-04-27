@@ -28,8 +28,17 @@ public class InboxManager
 	public static void Start (AppCompatActivity a)
 	{
 		activity = a;
-		RefreshInbox();
+		AddDummyMessage();
+	//	RefreshInbox();
 	}
+
+	private static void AddDummyMessage ()
+	{
+		messages = new ArrayList<>();
+		ShortMessage sms = new ShortMessage(new Date(), "You can't see me, my time is now.", "John Cena");
+		messages.add(sms);
+	}
+
 
 	public static void Migrate ()
 	{
@@ -92,12 +101,12 @@ public class InboxManager
 			3:     person               String
 			4:     date                 Date
 			5:     protocol
-			6:     read
-			7:    status
-			8:    type
+			-6:     read
+			-7:    status
+			-8:    type
 			9:    reply_path_present
-			10:    subject              String
-			11:    body                 String
+			-(null)10:    subject              String
+			-11:    body                 String
 			12:    service_center
 			13:    locked
 			14:     error code
@@ -129,4 +138,10 @@ public class InboxManager
 		}
 		return results;
 	}
+
+	public static AppCompatActivity GetActivity ()
+	{
+		return activity;
+	}
+
 }

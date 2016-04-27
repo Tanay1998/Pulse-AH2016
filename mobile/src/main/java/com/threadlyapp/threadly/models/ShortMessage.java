@@ -16,14 +16,12 @@ public class ShortMessage extends RealmObject
 {
 	@Index
 	String body;
-
 	Date date;
 	String recipients;
 	String civilBody;
 	String tags;
 	long thread_id;
 	boolean seen;
-
 	long id;
 
 	/*
@@ -64,6 +62,13 @@ public class ShortMessage extends RealmObject
 	public String GetCivilBody ()
 	{
 		return civilBody;
+	}
+
+	public String GetSender ()
+	{
+		if (recipients.indexOf(";") == -1)
+			return recipients;
+		return recipients.substring(0, recipients.indexOf(";"));
 	}
 
 	public void AddSender (String person)

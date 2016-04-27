@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		//setSupportActionBar(toolbar);
+
 		ImageButton fab = (ImageButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener()
 		{
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity
 
 	private int READ_REQUEST = 1;
 
-	private boolean hasPermissionReadSMS()
+	private boolean hasPermissionReadSMS ()
 	{
 		if (Build.VERSION.SDK_INT >= 23)
 		{

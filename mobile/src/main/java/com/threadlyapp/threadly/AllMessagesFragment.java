@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.threadlyapp.threadly.adapters.MessageListAdapter;
 import com.threadlyapp.threadly.data.InboxManager;
 import com.threadlyapp.threadly.models.ShortMessage;
 
@@ -19,19 +20,20 @@ import java.util.List;
  */
 public class AllMessagesFragment extends Fragment
 {
-
+	MessageListAdapter adapter;
 	public AllMessagesFragment ()
 	{
+
 	}
 
 	@Override
-	public View onCreateView (LayoutInflater inflater, ViewGroup container,
-	                          Bundle savedInstanceState)
+	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-
 		View v = inflater.inflate(R.layout.fragment_all_messages, container, false);
 		ListView allMessagesList = (ListView) v.findViewById(R.id.allMessageList);
-		List<String> smsList = (ArrayList) InboxManager.GetInbox();
+		ArrayList<ShortMessage> smsList = InboxManager.GetInbox();
+		adapter = new MessageListAdapter(smsList, null);  // TODO
+		allMessagesList.setAdapter(adapter);
 		return v;
 	}
 }

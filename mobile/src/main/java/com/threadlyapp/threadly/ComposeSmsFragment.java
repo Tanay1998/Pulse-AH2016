@@ -21,29 +21,33 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class ComposeSmsFragment extends Fragment {
+public class ComposeSmsFragment extends Fragment
+{
 
-    public ComposeSmsFragment() {
-    }
+	public ComposeSmsFragment ()
+	{
+	}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.fragment_compose_sms, container, false);
-        ImageButton sendMessageButton = (ImageButton) v.findViewById(R.id.sendMessageButton);
-        sendMessageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View k) {
-                SendManager smsSender = new SendManager();
-                TextView recep = (TextView) v.findViewById(R.id.phoneNo);
-                TextView smsText = (TextView) v.findViewById(R.id.smsText);
-                ArrayList<String> receps = new ArrayList<String>();
-                receps.add(0, recep.getText().toString());
-                AppCompatActivity host = (AppCompatActivity) v.getContext();
-                smsSender.SetActivity(host);
-                smsSender.SendSMS(receps, smsText.getText().toString());
-            }
-        });
-        return v;
-    }
+	@Override
+	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	{
+		final View v = inflater.inflate(R.layout.fragment_compose_sms, container, false);
+		ImageButton sendMessageButton = (ImageButton) v.findViewById(R.id.sendMessageButton);
+		sendMessageButton.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick (View k)
+			{
+				SendManager smsSender = new SendManager();
+				TextView recep = (TextView) v.findViewById(R.id.phoneNo);
+				TextView smsText = (TextView) v.findViewById(R.id.smsText);
+				ArrayList<String> receps = new ArrayList<String>();
+				receps.add(0, recep.getText().toString());
+				AppCompatActivity host = (AppCompatActivity) v.getContext();
+				smsSender.SetActivity(host);
+				smsSender.SendSMS(receps, smsText.getText().toString());
+			}
+		});
+		return v;
+	}
 }
